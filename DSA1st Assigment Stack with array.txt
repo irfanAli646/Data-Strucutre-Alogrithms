@@ -1,0 +1,104 @@
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+//program of implementaion of stack 
+// creating an stack and declaring the varibles
+// and also declaring a Functions 
+
+int stack[5];
+int top=-1;
+void push();
+void pop();
+void displaydata();
+void push()
+{
+	char optionpush;
+do {
+	int items;
+
+	if (top==5-1)
+	{
+		cout<<"----stack is full-----"<<endl;
+	}
+	else
+	{
+		cout<<"-----eEnter the elements----- "<<endl;
+		cin>>items;
+		top=top+1;
+		stack[top]=items;
+		
+	}
+	cout<<"--would you like to insert new elemt then prees y  To exit  PRees n--"<<endl;
+cin>>optionpush;
+
+}
+while (optionpush=='y');
+}
+void pop()
+{
+	char optionpop;
+	do
+	{
+		if (top==-1)
+	{
+		cout<<"---stack is empty----"<<endl;
+	}
+	else
+	{
+	cout<<"---POp opertion PERFORMED SUCCESSFULLY----"<<endl;
+		cout<<" poped   : "<<stack[top];
+		top=top-1;
+		cout<<endl;
+	}	
+	cout<<"would you like to pop new elemt then prees y  To exit  PRees n"<<endl;
+cin>>optionpop;
+	}while (optionpop=='y');
+
+}
+void displaydata()
+{
+	int i;
+	if (top>=0)
+	{
+		cout<<".....stack elements..... "<<endl;
+		for (i=top; i>=0; i--)
+		{
+			cout<<stack[i]<<"   "<<"	index  "<<i<<"  ";
+			cout<<endl;
+		}
+	}
+	else 
+	{
+		cout<<"----stack is empty----"<<endl;
+	}
+}
+main()
+{
+int choiceoption;
+cout<<" 1 for PUSH \n 2 for POP \n 3 for DISPLAY DATA \n 0 To EXIT"<<endl;
+do 
+{
+	cout<<endl<<endl;
+cout<<"<|--------Enter the choice<--------|>"<<endl;
+cin>>choiceoption;
+switch(choiceoption)
+{
+	case 1:
+		push();
+		break;
+    case 2:
+		pop();
+		break;
+	case 3:
+		displaydata();
+		break;
+	case 0:
+		cout<<"PROGRAM EXIT SUCCESSFULLY"<<endl;
+		exit(0);
+		break;
+	default :
+		cout<<"==invalid options==="<<endl;
+		break;
+}	
+}	while (choiceoption!=0);
+}
